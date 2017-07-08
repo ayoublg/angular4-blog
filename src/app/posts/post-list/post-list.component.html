@@ -1,0 +1,18 @@
+<span style="float:right;">
+<button (click)="showForm = !showForm">Add</button>
+<div *ngIf="showForm">
+  <form #myForm="ngForm" (ngSubmit)="addPost(post, myForm.valid)">
+    Title :  <input type="text" [(ngModel)]="post.title" name="title" required><br>
+    Description : <textarea [(ngModel)]="post.body" name="body"></textarea>
+    <input type="submit" value="Add">
+  </form>
+</div>
+</span>
+Posts list :
+<ul>
+  <li *ngFor="let post of posts">
+    <a routerLink="">{{post.title}}</a>
+    <div style="width:350px">{{post.body}}</div>
+  </li>
+</ul>
+
